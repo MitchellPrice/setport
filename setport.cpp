@@ -1,4 +1,4 @@
-// portsetter by Wyatt Sorenson
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[// portsetter by Wyatt Sorenson
 
 #include <iostream>
 #include <string>
@@ -24,14 +24,14 @@ int main(int argc, char* args[]) {
 	const string E = "-e";
 	string port = "8080";
 	string lang;
-	string la = ((string)getenv("LANG")).substr(0,2);
+	string la = (string)getenv("LANG");
 	string file;
 
 	if(la == "C") {
 		lang = "en";
 	}
 	else {
-		lang = la;
+		lang = la.substr(0,2);
 	}
 
 	//no args prints usage
