@@ -1,4 +1,4 @@
-[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[// portsetter by Wyatt Sorenson
+// portsetter by Wyatt Sorenson
 
 #include <iostream>
 #include <string>
@@ -26,12 +26,26 @@ int main(int argc, char* args[]) {
 	string lang;
 	string la = (string)getenv("LANG");
 	string file;
-
+	//std::regex regex_lang("^[a-z]{2}(\\_[A-Z]{2})?(\\.UTF-8)?");
+	
 	if(la == "C") {
 		lang = "en";
 	}
 	else {
-		lang = la.substr(0,2);
+		//bool langGood == std::regex_match(la, regex_lang);
+		// regex for cloud9 is unimplemented. The included regex would work.
+		//if (!langGood) {
+			//cout << "Bad language specification in environment variable LANG=" + la + ". Using English." << endl;
+			//lang = "en";
+			//break;
+		//}
+		lang = la.substr(0,2); // doing only this instead
+		std::ifstream infile("setport.about_" + lang + ".txt");
+		if (!infile.good()) {
+			cout << "Missing pl translation files. Using English." << endl;
+			lang = "en";
+		}
+		infile.close();
 	}
 
 	//no args prints usage
