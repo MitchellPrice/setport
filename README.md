@@ -8,3 +8,9 @@ $./setport
 Setport will listen on a psuedo-socket on a given port. A port number can be
 given or defaulted.  It can auto-detect the environment's language for English
 or Spanish.
+
+Collaboration with Mitchell Price
+
+-default PORT and BAR environment variables were changed to 3114 and 3116 respectively
+
+-Tests updated to accommodate the above changes
